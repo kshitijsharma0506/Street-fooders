@@ -1,1 +1,104 @@
-
+{
+    "items": [
+      {
+        "sys": { "id": "1" },
+        "fields": {
+          "title": "Pasta Stall",
+          "price": 150,
+          "image": { "fields": { "file": { "url": "./images/picture.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "2" },
+        "fields": {
+          "title": "Chines Food Stall",
+          "price": 120,
+          "image": { "fields": { "file": { "url": "./images/pictureA.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "3" },
+        "fields": {
+          "title": "Momos and Maggie Stall",
+          "price": 70,
+          "image": { "fields": { "file": { "url": "./images/pictureB.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "4" },
+        "fields": {
+          "title": "Hot Dogs",
+          "price": 155,
+          "image": { "fields": { "file": { "url": "./images/pictureC.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "5" },
+        "fields": {
+          "title": "Pani Puri Stall",
+          "price": 19,
+          "image": { "fields": { "file": { "url": "./images/pictureI.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "6" },
+        "fields": {
+          "title": "IStock Food Stall",
+          "price": 140,
+          "image": { "fields": { "file": { "url": "./images/pictureE.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "7" },
+        "fields": {
+          "title": "Cripy Squid",
+          "price": 145,
+          "image": { "fields": { "file": { "url": "./images/pictureF.jpg" } } }
+        }
+      },
+      {
+        "sys": { "id": "8" },
+        "fields": {
+          "title": "Dosa Stand",
+          "price": 90,
+          "image": { "fields": { "file": { "url": "./images/pictureG.jpg" } } }
+        }
+      },
+      
+      {
+        "sys": { "id": "9" },
+        "fields": {
+          "title": "Station BBQ",
+          "price": 210,
+          "image": { "fields": { "file": { "url": "./images/pictureH.jpg" } } }
+        }
+      },
+      
+      {
+        "sys": { "id": "10" },
+        "fields": {
+          "title": "Dabha",
+          "price": 199,
+          "image": { "fields": { "file": { "url": "./images/pictureD.jpg" } } }
+        }
+      },
+      
+      {
+        "sys": { "id": "11" },
+        "fields": {
+          "title": "La Falafel",
+          "price": 180,
+          "image": { "fields": { "file": { "url": "./images/pictureJ.jpg" } } }
+        }
+      },
+      
+      {
+        "sys": { "id": "12" },
+        "fields": {
+          "title": "table",
+          "price": 33.99,
+          "image": { "fields": { "file": { "url": "./images/pictureK.jpg" } } }
+        }
+      }
+    ]
+  }
