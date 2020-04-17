@@ -12,6 +12,8 @@ const cartContent=document.querySelector(".cart-content")
 
 //Placing all the obj taking and getting info form this cart only;
 let mainCart=[];
+let allButtonDOMS=[]
+
 
 class getProducts{
     async Products(){
@@ -54,12 +56,51 @@ class display{
         });
         productsDOM.innerHTML=result;
     }
+    
+    
+    BagButtons(){
+        const buttons=[...document.querySelectorAll('.bag-btn')]; // this will create an array instead of nodelist 
+        
+        allButtonDOMS=buttons;// adding all the buttons to the array
+
+        buttons.forEach(button=>{
+
+            let id=button.dataset.id;
+            const inCart=mainCart.find(item=>item.id===id);
+            
+            if(inCart){
+                button.innerText="In Cart";
+                button.disabled=true;
+            }
+            
+            button.addEventListener("click",(event)=>{
+                event.target.innerText="In cart";
+                event.target.disabled=true;
+
+                //get product form product
+                let cartItem=storage.getTheProduct(id);
+                console.log(cartItem);
+                //add product to the cart
+                //save cart items to local storage
+                //set cart value
+                //display cart item
+                // show the cart
+
+        })
+        })
+    }
 }
 
 class storage{
-    constructor(item){
-
+        //We don't need to call this methord again becuase it is a static methord
+    static saveProduct(products){
+        localStorage.setItem("product",JSON.stringify(products));
     }
+    static getTheProduct(id){
+        let products=JSON.parse(localStorage.getItem("product"));
+        return products.find(product=>product.id===id);
+    }
+
 }
 
 /*
@@ -70,7 +111,9 @@ The DOMContentLoaded event fires when the initial HTML document has been complet
 document.addEventListener("DOMContentLoaded",()=>{
     let ui=new display();
     let porducts=new getProducts(); 
-
     //getting the products 
-    porducts.Products().then(products=>ui.displayProducts(products));
+    products.getProducts().then(products=>{ui.displayProducts(products);
+    storage.saveProduct(products)}).then(()=>{
+        ui.BagButtons();
+    });
 });
