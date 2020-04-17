@@ -79,15 +79,50 @@ class display{
 
                 //get product form product
                 let cartItem=storage.getTheProduct(id);
-                console.log(cartItem);
+                
                 //add product to the cart
+                mainCart=[...mainCart,cartItem];
+                
                 //save cart items to local storage
+                storage.saveCart(mainCart);
+                
                 //set cart value
+                this.setCartValues(mainCart);
                 //display cart item
+                this.addCartItem(mainCart);
+
+
                 // show the cart
 
+
+        });
+        });
+    }
+    setCartValues(mainCart){
+        let totalCartCost=0,itemsTotal=0; 
+        mainCart.map(item=>{
+            totalCartCost+=item.price*item.amount;
+            itemsTotal+=item.amount;
         })
-        })
+        cartTotal.innerText=parseFloat(totalCartCost.toFixed(2));
+        cartItems.innerText=itemsTotal;
+    }
+    addCartItem(item){
+        const div=document.createElement("div");
+        div.classList.add('cart-item');
+        div.innerHTML=`<img src=${item.img} alt="product">     
+        <div>
+            <h4>${item.title}</h4>
+            <h5><i class="fas fa-rupee-sign"></i>${item.price}</h5>
+            <span class="remove-item" data-id=${item.id}>remove</span>
+
+            <i class="fas fa-plus" data-id=${item.id}></i>
+            <div class="item-amount">${item.amount}</div>
+            <i class="fas fa-minus" data-id=${item.id}></i>
+         
+        </div>`;    
+        cartContent.appendChild(div);
+        console.log(cartContent);
     }
 }
 
