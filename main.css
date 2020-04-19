@@ -33,6 +33,7 @@ Nav bar
   flex-direction: row;
   background: rgb(245, 233, 212);
   width: 100%;
+  z-index: 3;
   height: 120px;
 }
 
