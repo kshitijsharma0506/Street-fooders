@@ -5,7 +5,7 @@ const cartOverlayDOM=document.querySelector(".cart-overlay");
 const productsDOM=document.querySelector('.products-center');
 const closeCartBtn=document.querySelector('.close-cart');
 const cartClear=document.querySelector('.clear-cart');
-const cartItems=document.querySelector(".cart-item");
+const cartItems=document.querySelector(".cart-items");
 const cartTotal =document.querySelector(".cart-total")
 const cartContent=document.querySelector(".cart-content")
 
@@ -93,6 +93,7 @@ class display{
 
 
                 // show the cart
+                 this.showCart();
 
 
         });
@@ -122,8 +123,100 @@ class display{
          
         </div>`;    
         cartContent.appendChild(div);
-        console.log(cartContent);
+
     }
+    
+    showCart(){
+        cartOverlay.classList.add('transparentBcg');
+        cartDOM.classList.add('showCart');
+
+    }
+    
+    //to store the last selected element in the caert
+    setUp(){
+        mainCart=storage.savedItemsInCart();
+        this.setCartValues(mainCart);
+        this.populateCart(mainCart);
+        cartBtn.addEventListener("click",this.showCart);
+        closeCartBtn.addEventListener("click",this.closeCart);
+    }
+
+    populateCart(cart){
+        cart.forEach(item=>this.addCartItem(item));
+    }
+
+    closeCart(){
+        cartOverlay.classList.remove('transparentBcg');
+        cartDOM.classList.remove('showCart');
+    }
+
+    cartLogic(){
+        cartClear.addEventListener("click",()=>{
+            this.clearCart();
+        });
+
+        
+    ////EVENT bubbling
+    cartContent.addEventListener("click",event=>{
+        if(event.target.classList.contains('remove-item')){
+            let remove_Item=event.target;
+            let id=remove_Item.dataset.id;
+            //as we want to remove the object but remove is in child div of cart-item so we need to go to remove-item parents parent(ie data-item) 
+            cartContent.removeChild( remove_Item.parentElement.parentElement);
+            this.removeItem(id);
+        }
+
+        else if(event.target.classList.contains('fa-plus')){
+            let addAmount=event.target;
+            let id=addAmount.dataset.id;
+            let tempItem=mainCart.find(item=>item.id===id);
+            tempItem.amount=tempItem.amount+1;
+            //saving in local storage
+            storage.saveCart(mainCart);
+            this.setCartValues(mainCart);
+            addAmount.nextElementSibling.innerText=tempItem.amount;
+        }
+        else if(event.target.classList.contains("fa-minus")){
+            let subAmount=event.target;
+            let id=subAmount.dataset.id;
+            let tempItem=mainCart.find(item=>item.id===id);
+            tempItem.amount=tempItem.amount-1;
+            if(tempItem.amount>0){    
+                storage.saveCart(mainCart);
+                this.setCartValues(mainCart);
+                subAmount.previousElementSibling.innerText=tempItem.amount;
+            }
+            else{
+                cartContent.removeChild(subAmount.parentElement.parentElement);
+                this.removeItem(id);
+            }
+        }
+    })
+
+    }
+    clearCart(){
+        let cart_Item=mainCart.map(item=>item.id);
+        cart_Item.forEach(id=>this.removeItem(id));
+        while(cartContent.children.length>0){
+            cartContent.removeChild(cartContent.children[0]);
+        }
+        this.closeCart();
+    }
+
+    removeItem(id){
+        mainCart=mainCart.filter(item=>item.id!==id);
+        this.setCartValues(mainCart);
+        storage.saveCart(mainCart);
+        let button=this.getSingleButton(id);
+        button.disabled=false;
+        button.innerHTML=`<i class="fas fa-shopping-cart"></i>Add to cart`;
+
+    }
+
+    getSingleButton(id){
+        return allButtonDOMS.find(button=>button.dataset.id===id);
+    }
+
 }
 
 class storage{
@@ -135,6 +228,14 @@ class storage{
         let products=JSON.parse(localStorage.getItem("product"));
         return products.find(product=>product.id===id);
     }
+      static saveCart(cart){
+            localStorage.setItem("cart",JSON.stringify(cart));
+        }
+
+        //to return stored element's inside the cart
+        static savedItemsInCart(){
+            return localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[];
+        }
 
 }
 
@@ -150,5 +251,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     products.getProducts().then(products=>{ui.displayProducts(products);
     storage.saveProduct(products)}).then(()=>{
         ui.BagButtons();
+        ui.cartLogic();
     });
 });
