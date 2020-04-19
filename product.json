@@ -3,31 +3,31 @@
       {
         "sys": { "id": "1" },
         "fields": {
-          "title": "Pasta Stall",
-          "price": 150,
+          "title": "Rolls & Wrap",
+          "price": 350,
           "image": { "fields": { "file": { "url": "./images/picture.jpg" } } }
         }
       },
       {
         "sys": { "id": "2" },
         "fields": {
-          "title": "Chines Food Stall",
-          "price": 120,
+          "title": "Cooked food",
+          "price": 500,
           "image": { "fields": { "file": { "url": "./images/pictureA.jpg" } } }
         }
       },
       {
         "sys": { "id": "3" },
         "fields": {
-          "title": "Momos and Maggie Stall",
-          "price": 70,
+          "title": "Barbecue bbq beef cooked",
+          "price": 702    ,
           "image": { "fields": { "file": { "url": "./images/pictureB.jpg" } } }
         }
       },
       {
         "sys": { "id": "4" },
         "fields": {
-          "title": "Hot Dogs",
+          "title": "Club sandwich",
           "price": 155,
           "image": { "fields": { "file": { "url": "./images/pictureC.jpg" } } }
         }
@@ -35,15 +35,15 @@
       {
         "sys": { "id": "5" },
         "fields": {
-          "title": "Pani Puri Stall",
-          "price": 19,
-          "image": { "fields": { "file": { "url": "./images/pictureI.jpg" } } }
+          "title": "Burger & French Fries",
+          "price": 299,
+          "image": { "fields": { "file": { "url": "./images/pictureD.jpg" } } }
         }
       },
       {
         "sys": { "id": "6" },
         "fields": {
-          "title": "IStock Food Stall",
+          "title": "Cooked rice & Curry food",
           "price": 140,
           "image": { "fields": { "file": { "url": "./images/pictureE.jpg" } } }
         }
@@ -51,7 +51,7 @@
       {
         "sys": { "id": "7" },
         "fields": {
-          "title": "Cripy Squid",
+          "title": "Dessert",
           "price": 145,
           "image": { "fields": { "file": { "url": "./images/pictureF.jpg" } } }
         }
@@ -59,8 +59,8 @@
       {
         "sys": { "id": "8" },
         "fields": {
-          "title": "Dosa Stand",
-          "price": 90,
+          "title": "Sandwich",
+          "price": 190,
           "image": { "fields": { "file": { "url": "./images/pictureG.jpg" } } }
         }
       },
@@ -68,36 +68,9 @@
       {
         "sys": { "id": "9" },
         "fields": {
-          "title": "Station BBQ",
-          "price": 210,
+          "title": "Spinach chicken & salad",
+          "price": 510,
           "image": { "fields": { "file": { "url": "./images/pictureH.jpg" } } }
-        }
-      },
-      
-      {
-        "sys": { "id": "10" },
-        "fields": {
-          "title": "Dabha",
-          "price": 199,
-          "image": { "fields": { "file": { "url": "./images/pictureD.jpg" } } }
-        }
-      },
-      
-      {
-        "sys": { "id": "11" },
-        "fields": {
-          "title": "La Falafel",
-          "price": 180,
-          "image": { "fields": { "file": { "url": "./images/pictureJ.jpg" } } }
-        }
-      },
-      
-      {
-        "sys": { "id": "12" },
-        "fields": {
-          "title": "table",
-          "price": 33.99,
-          "image": { "fields": { "file": { "url": "./images/pictureK.jpg" } } }
         }
       }
     ]
