@@ -4,7 +4,7 @@ const client = contentful.createClient({
     // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
     accessToken: "DxgrXFRtdIkxsSR3JlQ40ADLJAcJFDXFQNbwyYSRhC8"
   });
-console.log(client);
+
 
 //All the variables name
 const cartBtn=document.querySelector('.cart-btn');
@@ -29,7 +29,7 @@ class getProducts{
             let contentful= await client.getEntries({
                 content_type: 'streetFooder'
             });
-            //local data
+            //local data which is stored in JSON
             /*
             let promise=await fetch('product.json');
             let data=await promise.json();
