@@ -1,6 +1,7 @@
 # Street-fooders
 An online street food shopping website to buy or add your wishlist food item to yor cart . So that you can get best food form your area.
-Product details are stored on ContentFul and images are taken form Pexels.
+Product details are stored on ContentFul(https://www.contentful.com) so that they can easily be accessed.
+Images are taken form Pexels(https://www.contentful.com).
 
 https://streetfooder.netlify.app
 
